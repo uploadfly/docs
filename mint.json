@@ -8,8 +8,8 @@
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#F35815",
-    "light": "#4D9CFF",
-    "dark": "#0050B4"
+    "light": "#F35815",
+    "dark": "#F35815"
   },
   "topbarLinks": [
     {
@@ -40,14 +40,12 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "pages": ["api-reference/authentication", "api-reference/creating-a-fly"]
     },
     {
       "group": "API Endpoints",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
+        "api-reference/endpoint/upload",
         "api-reference/endpoint/delete"
       ]
     }
