@@ -1,0 +1,22 @@
+### Response
+
+<ResponseField name="message" type="string">
+  Contains a descriptive message that provides further details about the API
+  call's outcome.
+</ResponseField>
+
+<ResponseField name="success" type="number">
+  Indicates whether the call was successful. 1 if successful, 0 if not.
+</ResponseField>
+
+<ResponseField name="status" type="number">
+  Provides additional information about the outcome of the request. The specific
+  values and their meanings may vary.
+
+- **200**: The request was successful.
+- **400**: The request was invalid or malformed.
+- **401**: Authentication or authorization failed.
+- **404**: The requested resource was not found.
+- **500**: An internal server error occurred.
+
+</ResponseField>
