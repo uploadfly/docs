@@ -1,12 +1,12 @@
 ---
 title: "Upload a file"
-api: "POST https://api.uploadfly.cloud/upload"
+api: "POST /upload"
 description: "This endpoint uploads a single file"
 ---
 
 ### Body
 
-<ParamField body="file" type="file">
+<ParamField body="file" type="file" required>
   This is the file that is going to be uploaded to your fly.
 </ParamField>
 
