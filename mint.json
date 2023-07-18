@@ -40,7 +40,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication", "api-reference/creating-a-fly"]
+      "pages": ["api-reference/creating-a-fly", "api-reference/authentication"]
     },
     {
       "group": "API Endpoints",
