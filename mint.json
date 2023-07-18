@@ -60,5 +60,8 @@
     "auth": {
       "method": "bearer"
     }
+  },
+  "modeToggle": {
+    "isHidden": true
   }
 }
