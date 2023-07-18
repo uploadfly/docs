@@ -9,7 +9,10 @@
   "colors": {
     "primary": "#F35815",
     "light": "#F35815",
-    "dark": "#F35815"
+    "dark": "#F35815",
+    "background": {
+      "dark": "#0f0f0f"
+    }
   },
   "topbarLinks": [
     {
