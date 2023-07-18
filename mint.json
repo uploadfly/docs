@@ -51,9 +51,9 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/uploadflycloud",
+    "github": "https://github.com/uploadfly",
+    "discord": "https://discord.gg/5crMTTt6"
   },
   "api": {
     "baseUrl": "https://api.uploadfly.cloud",
