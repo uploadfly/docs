@@ -11,11 +11,7 @@ description: "This endpoint deletes a single file."
   that you want to delete.
 </ParamField>
 
-### Response
-
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
-</ResponseField>
+<Snippet file="response.mdx" />
 
 <RequestExample>
 
@@ -134,7 +130,9 @@ try {
 
 ```json Response
 {
-  "success": 1
+  "message": "File deleted successfully",
+  "success": 1,
+  "status": 200
 }
 ```
 
