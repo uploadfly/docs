@@ -1,19 +1,14 @@
 ---
-title: "Delete User"
-api: "DELETE https://api.mintlify.com/api/user"
-description: "This endpoint deletes an existing user."
+title: "Delete a file"
+api: "DELETE https://api.uploadfly.cloud/delete"
+description: "This endpoint deletes a single file."
 ---
 
 ### Body
 
-<ParamField body="data_source_provided_id" type="string">
-  The data source ID provided in the data tab may be used to identify the data
-  source for the user group
-</ParamField>
-
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group you want to
-  delete
+<ParamField body="file_url" type="string">
+  The file URL you provide is used to identify a file that exists in your fly
+  that you want to delete.
 </ParamField>
 
 ### Response
