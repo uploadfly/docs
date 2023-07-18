@@ -54,5 +54,11 @@
     "twitter": "https://twitter.com/mintlify",
     "github": "https://github.com/mintlify",
     "linkedin": "https://www.linkedin.com/company/mintsearch"
+  },
+  "api": {
+    "baseUrl": "https://api.uploadfly.cloud",
+    "auth": {
+      "method": "bearer"
+    }
   }
 }
