@@ -6,9 +6,12 @@ description: "This endpoint uploads a single file"
 
 ### Body
 
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="file" type="file">
+  This is the file that is going to be uploaded to your fly.
+</ParamField>
+
+<ParamField body="filename" type="string" placeholder="optional">
+  This is the name of your file
 </ParamField>
 
 ### Response
