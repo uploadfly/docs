@@ -39,8 +39,8 @@
       "pages": ["introduction"]
     },
     {
-      "group": "API Documentation",
-      "pages": ["api-reference/creating-a-fly", "api-reference/authentication"]
+      "group": "Quickstart",
+      "pages": ["quickstart/creating-a-fly", "quickstart/authentication"]
     },
     {
       "group": "API Endpoints",
