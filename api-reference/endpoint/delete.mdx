@@ -20,15 +20,20 @@ description: "This endpoint deletes a single file."
 <RequestExample>
 
 ```javascript JavaScript (fetch)
-fetch("https://api.uploadfly.cloud/delete", {
-  method: "DELETE",
-  headers: {
-    Authorization: "Bearer SECRET_KEY",
-  },
-  body: {
-    file_url: "cdn.uploadfly.cloud/xrwbua/example.png",
-  },
-});
+try {
+  const res = fetch("https://api.uploadfly.cloud/delete", {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer SECRET_KEY",
+    },
+    body: {
+      file_url: "cdn.uploadfly.cloud/xrwbua/example.png",
+    },
+  });
+  //Handle response
+} catch (error) {
+  //Handle error
+}
 ```
 
 ```go Go
@@ -107,15 +112,20 @@ curl_close($ch);
 ```
 
 ```javascript JavaScript (axios)
-axios.delete("https://api.uploadfly.cloud/delete", {
-  method: "DELETE",
-  headers: {
-    Authorization: "Bearer SECRET_KEY",
-  },
-  body: {
-    file_url: "cdn.uploadfly.cloud/xrwbua/example.png",
-  },
-});
+try {
+  const res = axios.delete("https://api.uploadfly.cloud/delete", {
+    method: "DELETE",
+    headers: {
+      Authorization: "Bearer SECRET_KEY",
+    },
+    body: {
+      file_url: "cdn.uploadfly.cloud/xrwbua/example.png",
+    },
+  });
+  //Handle response
+} catch (error) {
+  //Handle error
+}
 ```
 
 </RequestExample>
