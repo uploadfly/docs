@@ -16,56 +16,58 @@ description: "This endpoint uploads a single file"
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="success" type="boolean">
+  Indicates whether the call was successful. true if successful, false if not.
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
+<ResponseField name="status" type="number">
+  Provides additional information about the outcome of the request. The specific
+  values and their meanings may vary.
 
-The contents of the user group
+- **200**: The request was successful.
+- **400**: The request was invalid or malformed.
+- **401**: Authentication or authorization failed.
+- **403**: The request is not allowed.
+- **404**: The requested resource was not found.
+- **500**: An internal server error occurred.
 
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this
-  information, since you will not need to use it.
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
-</ResponseField>
-
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
-</ResponseField>
-
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
-</ResponseField>
-
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'. User group id's must be unique to each environment, so you can
-  not create multiple user groups with with same id. If you have a production
-  customer and a test user group with the same id, you will be required to label
-  one as 'Customer' and another as 'Testing'
-</ResponseField>
-
-</Expandable>
-
+<ResponseField name="data" type="object">
+  This contains information about the uploaded file such as the url, file size,
+  path and mime type.
 </ResponseField>
 
 <RequestExample>
 
-```bash Example Request
-curl --location --request POST 'https://api.mintlify.com/api/user' \
---header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
---data-raw '{
-    "current_token": ""
-}'
+```javascript JavaScript
+async function uploadFile(file) {
+  const uploadEndpoint = "https://api.uploadfly.cloud/upload";
+  try {
+    // Create a new FormData object
+    const formData = new FormData();
+
+    // Append the file to the FormData object with the key 'file'
+    formData.append("file", file);
+
+    // Make the POST request using the fetch API
+    const response = await fetch(uploadEndpoint, {
+      method: "POST",
+      body: formData,
+    });
+
+    // Handle response
+  } catch (error) {
+    // Handle error
+  }
+}
+
+// Example usage:
+const fileInput = document.getElementById("fileInput"); // Assuming you have an input element with type="file" and id="fileInput" in your HTML
+fileInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  uploadFile(file);
+});
 ```
 
 </RequestExample>
@@ -74,11 +76,15 @@ curl --location --request POST 'https://api.mintlify.com/api/user' \
 
 ```json Example Response
 {
-  "url": "https://cdn.uploadfly.cloud/loUvT2/example-uwAyQV.png",
-  "path": "loUvT2/example-uwAyQV.png",
-  "type": "image/png",
-  "size": "8.96 kB",
-  "name": "example-uwAyQV"
+  "success": true,
+  "status": 200,
+  "data": {
+    "url": "https://cdn.uploadfly.cloud/loUvT2/example-uwAyQV.png",
+    "path": "loUvT2/example-uwAyQV.png",
+    "type": "image/png",
+    "size": "21.55 kB",
+    "name": "example-uwAyQV"
+  }
 }
 ```
 
