@@ -15,7 +15,7 @@ description: "This endpoint deletes a single file."
 
 <RequestExample>
 
-```javascript JavaScript (fetch)
+```javascript JavaScript
 try {
   const res = fetch("https://api.uploadfly.cloud/delete", {
     method: "DELETE",
@@ -107,32 +107,17 @@ curl_close($ch);
 ?>
 ```
 
-```javascript JavaScript (axios)
-try {
-  const res = axios.delete("https://api.uploadfly.cloud/delete", {
-    method: "DELETE",
-    headers: {
-      Authorization: "Bearer SECRET_KEY",
-    },
-    body: {
-      file_url: "cdn.uploadfly.cloud/xrwbua/example.png",
-    },
-  });
-  //Handle response
-} catch (error) {
-  //Handle error
-}
-```
-
 </RequestExample>
 
 <ResponseExample>
 
 ```json Response
 {
-  "message": "File deleted successfully",
-  "success": 1,
-  "status": 200
+  "success": true,
+  "status": 200,
+  "data": {
+    "message": "File deleted successfully"
+  }
 }
 ```
 
