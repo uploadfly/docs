@@ -1,22 +1,32 @@
 ---
 title: "Authentication"
-description: "Example overview page before API endpoints"
+description: "Securely managing access to Uploadfly API endpoints."
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+In order to interact with Uploadfly's API endpoints, you'll need to authenticate your requests using an API key. API keys grant access to the services and functionalities provided by Uploadfly. There are two types of access levels associated with an API key: **"upload access"** and **"full access"**. Each access level has different permissions and restrictions, allowing you to choose the appropriate level of access based on your requirements.
 
-```bash
-'Authorization': 'Token <team_token>'
+## API Key Access Levels
+
+### 1. Upload Access
+
+The "upload access" API key is designed to allow only file uploads. With this access level, you can securely upload your files to your fly, making it convenient for scenarios where file submission is the primary requirement.
+
+### 2. Full Access
+
+The "full access" API key provides unrestricted access to your fly. It is not only designed to upload files but also leverage additional functionalities, such as deleting files, creating routes, and accessing administrative features. This level of access is suitable when you need complete control and oversight of your fly.
+
+## Obtaining an API Key
+
+Navigate to the "API Keys" section within your fly dashboard. Here, you can generate a new API key.
+
+Select the access level you require for your API key. If you only need to upload files, choose "upload access." For full control and access to all features, choose "full access."
+
+After generating the API key, ensure you copy it to a secure location. Treat your API key like a password.
+
+## Using the API Key
+
+To authenticate your requests, include the API key as a Bearer token in the HTTP headers of your API calls. The API key will be used to validate your access level and permissions for each request.
+
+```http
+Authorization: Bearer YOUR_API_KEY
 ```
-
-## API Tokens
-
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
-
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
-
-### Permissions
-
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
-
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
