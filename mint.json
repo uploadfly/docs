@@ -66,5 +66,8 @@
   },
   "modeToggle": {
     "isHidden": true
+  },
+  "analytics": {
+    "plausible": { "domain": "docs.uploadfly.cloud" }
   }
 }
