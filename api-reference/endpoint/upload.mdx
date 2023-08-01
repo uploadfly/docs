@@ -10,8 +10,21 @@ description: "This endpoint uploads a single file"
   This is the file that is going to be uploaded to your fly.
 </ParamField>
 
-<ParamField body="filename" type="string" placeholder="optional">
+<ParamField body="filename" type="string" placeholder="">
   This is the name of your file
+</ParamField>
+
+<ParamField body="maxFileSize" type="string" placeholder="Example: 200KB">
+  This is the maximum file size that can be uploaded. For example: `1MB`
+</ParamField>
+
+<ParamField
+  body="allowedFileTypes"
+  type="string"
+  placeholder="Example: png, jpg, webp"
+>
+  This are the file types that can be uploaded. Multiple file types should be
+  separated with commas. For example: `mp4, png, wav`
 </ParamField>
 
 ### Response
