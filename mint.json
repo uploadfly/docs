@@ -46,6 +46,10 @@
       "pages": ["quickstart/creating-a-fly", "quickstart/authentication"]
     },
     {
+      "group": "Upload Widget",
+      "pages": ["upload-widget/react"]
+    },
+    {
       "group": "API Endpoints",
       "pages": [
         "api-reference/endpoint/upload",
