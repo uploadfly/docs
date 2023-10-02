@@ -59,7 +59,8 @@
   "api": {
     "baseUrl": "https://api.uploadfly.cloud",
     "auth": {
-      "method": "bearer"
+      "method": "bearer",
+      "name": "token"
     }
   },
   "modeToggle": {

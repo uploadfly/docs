@@ -10,7 +10,7 @@ description: "This endpoint uploads a single file"
   This is the file that is going to be uploaded to your fly.
 </ParamField>
 
-<ParamField body="filename" type="string" placeholder="">
+<ParamField body="filename" type="string" placeholder="" required>
   This is the name of your file
 </ParamField>
 
@@ -67,6 +67,9 @@ async function uploadFile(file) {
     const response = await fetch(uploadEndpoint, {
       method: "POST",
       body: formData,
+      headers: {
+        Authorization: "Bearer API_KEY",
+      },
     });
 
     // Handle response

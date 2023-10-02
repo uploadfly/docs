@@ -20,7 +20,7 @@ try {
   const res = fetch("https://api.uploadfly.cloud/delete", {
     method: "DELETE",
     headers: {
-      Authorization: "Bearer SECRET_KEY",
+      Authorization: "Bearer API_KEY",
     },
     body: {
       file_url: "cdn.uploadfly.cloud/xrwbua/example.png",
@@ -49,7 +49,7 @@ func main() {
 		// Handle error
 	}
 
-	req.Header.Set("Authorization", "Bearer SECRET_KEY")
+	req.Header.Set("Authorization", "Bearer API_KEY")
 
 	client := &http.Client{}
 	resp, err := client.Do(req)
@@ -71,7 +71,7 @@ fn main() -> Result<(), reqwest::Error> {
     let url = "https://api.uploadfly.cloud/delete";
 
     let mut headers = HashMap::new();
-    headers.insert("Authorization", "Bearer SECRET_KEY");
+    headers.insert("Authorization", "Bearer API_KEY");
 
     let mut body = HashMap::new();
     body.insert("file_url", "cdn.uploadfly.cloud/xrwbua/example.png");
@@ -95,7 +95,7 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://api.uploadfly.cloud/delete");
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-    "Authorization: Bearer SECRET_KEY"
+    "Authorization: Bearer API_KEY"
 ));
 curl_setopt($ch, CURLOPT_POSTFIELDS, array(
     "file_url" => "cdn.uploadfly.cloud/xrwbua/example.png"
