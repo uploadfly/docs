@@ -1,12 +1,9 @@
-# Uploadfly React Widget Component Documentation
-
-## Table of Contents
+The React widget provides you with a customizable widget to upload files from your React application.
 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Props](#props)
 - [Event Handlers](#event-handlers)
-- [Styling](#styling)
 - [Attribution](#attribution)
 
 ## Installation
@@ -47,7 +44,10 @@ export default App;
 
 The `UfWidget` component accepts the following props:
 
-- `apiKey` (string, required): Your API key for accessing Uploadfly services.
+- `apiKey` (string, required): Your UploadFly API key. Preferably, a [upload access](/quickstart/authentication#1-upload-access) key.
+- `filename` (string, optional): The name of the file to be uploaded.
+- `maxFileSize` (string, optional): The maximum allowed file size for upload, specified as a string (e.g., "6.9MB").
+- `allowedFileTypes` (array of strings, optional): An array of allowed file types for upload (e.g., ["jpeg", "png"]).
 - `hideAttribution` (boolean, optional): If set to `true`, hides the attribution link.
 - `onUploadComplete` (function, optional): A callback function that receives upload completion data.
 - `accentColor` (string, optional): Custom accent color for styling the widget (default is `#f35815`).
@@ -66,4 +66,4 @@ The `UfWidget` component accepts the following props:
 
 ## Attribution
 
-By default, the widget includes an attribution link to Uploadfly. If you wish to hide this attribution, set the `hideAttribution` prop to `true`.
+By default, the widget includes an attribution link to UploadFly. If you wish to hide this attribution, set the `hideAttribution` prop to `true`.
