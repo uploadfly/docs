@@ -22,7 +22,7 @@
   ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://beta.uploadfly.cloud/signup"
+    "url": "https://beta.uploadfly.co/signup"
   },
   "anchors": [
     {
@@ -67,6 +67,6 @@
     "isHidden": true
   },
   "analytics": {
-    "plausible": { "domain": "docs.uploadfly.cloud" }
+    "plausible": { "domain": "docs.uploadfly.co" }
   }
 }
