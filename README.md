@@ -1,4 +1,3 @@
 # Uplaodfly docs
 
-
-[Go to docs](https://docs.uploadfly.cloud)
+[Go to docs](https://docs.uploadfly.co)
