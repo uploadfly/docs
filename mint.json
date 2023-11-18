@@ -41,6 +41,10 @@
       "pages": ["quickstart/creating-a-fly", "quickstart/authentication"]
     },
     {
+      "group": "SDKs",
+      "pages": ["sdk/js"]
+    },
+    {
       "group": "Upload Widget",
       "pages": ["upload-widget/react"]
     },
