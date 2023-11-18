@@ -42,7 +42,7 @@
     },
     {
       "group": "SDKs",
-      "pages": ["sdk/js"]
+      "pages": ["sdks/javascript"]
     },
     {
       "group": "Upload Widget",

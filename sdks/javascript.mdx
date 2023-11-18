@@ -1,0 +1,253 @@
+The JavaScript SDK provides a convenient interface for interacting with the UploadFly API to upload and delete files.
+
+## Installation
+
+```bash
+npm install @uploadfly/js
+```
+
+### Class: `CreateUploadflyClient`
+
+### Constructor
+
+#### `new CreateUploadflyClient(apiKey: string)`
+
+- Creates a new instance of the `CreateUploadflyClient` class.
+- **Parameters:**
+  - `apiKey` (string): The API key required for authentication with the UploadFly service.
+- **Throws:**
+  - `Error`: If the `apiKey` parameter is not provided.
+
+### Methods
+
+#### `upload(file: File, config?: { filename?: string })`
+
+- Uploads a file to the Uploadfly cloud.
+- **Parameters:**
+  - `file` (File): The file to be uploaded.
+  - `config` (optional): Additional configuration options.
+    - `filename` (string): The desired filename for the uploaded file. If not provided, the original filename will be used.
+  - **Returns:**
+    - A Promise that resolves with the response from the Uploadfly API.
+  - **Throws:**
+    - `Error`: If the `file` parameter is not provided or if the file upload fails.
+    - `Error`: If an error occurs during the file upload process.
+
+#### `delete(fileUrl: string)`
+
+- Deletes a file from the Uploadfly cloud.
+- **Parameters:**
+  - `fileUrl` (string): The URL of the file to be deleted.
+  - **Returns:**
+    - A Promise that resolves with the response from the Uploadfly API.
+  - **Throws:**
+    - `Error`: If the `fileUrl` parameter is not provided or if the file deletion fails.
+    - `Error`: If an error occurs during the file deletion process.
+
+<RequestExample>
+
+```javascript React
+import React, { useState } from "react";
+import { CreateUploadflyClient } from "@uploadfly/js";
+
+const UploadComponent = () => {
+  const [file, setFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleUpload = async () => {
+    const apiKey = "api_key";
+    const uploadfly = new CreateUploadflyClient(apiKey);
+
+    try {
+      const result = await uploadfly.upload(file, {
+        filename: "custom_filename",
+      });
+      console.log("Upload successful:", result);
+    } catch (error) {
+      console.error("Upload failed:", error.message);
+    }
+  };
+
+  return (
+    <div>
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleUpload}>Upload</button>
+    </div>
+  );
+};
+
+export default UploadComponent;
+```
+
+```html Vue
+<template>
+  <div>
+    <input type="file" @change="handleFileChange" />
+    <button @click="handleUpload">Upload</button>
+  </div>
+</template>
+
+<script>
+  import { CreateUploadflyClient } from "@uploadfly/js";
+
+  export default {
+    data() {
+      return {
+        file: null,
+      };
+    },
+    methods: {
+      handleFileChange(event) {
+        this.file = event.target.files[0];
+      },
+      async handleUpload() {
+        const apiKey = "api_key";
+        const uploadfly = new CreateUploadflyClient(apiKey);
+
+        try {
+          const result = await uploadfly.upload(this.file, {
+            filename: "custom_filename",
+          });
+          console.log("Upload successful:", result);
+        } catch (error) {
+          console.error("Upload failed:", error.message);
+        }
+      },
+    },
+  };
+</script>
+```
+
+```javascript Solid
+import { createSignal } from "solid-js";
+import { CreateUploadflyClient } from "@uploadfly/js";
+
+const UploadComponent = () => {
+  const [file, setFile] = createSignal(null);
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleUpload = async () => {
+    const apiKey = "api_key";
+    const uploadfly = new CreateUploadflyClient(apiKey);
+
+    try {
+      const result = await uploadfly.upload(file(), {
+        filename: "custom_filename",
+      });
+      console.log("Upload successful:", result);
+    } catch (error) {
+      console.error("Upload failed:", error.message);
+    }
+  };
+
+  return (
+    <div>
+      <input type="file" onChange={handleFileChange} />
+      <button onClick={handleUpload}>Upload</button>
+    </div>
+  );
+};
+
+export default UploadComponent;
+```
+
+```javascript Angular
+
+import { Component } from '@angular/core';
+import { CreateUploadflyClient } from '@uploadfly/js';
+
+@Component({
+  selector: 'app-upload',
+  template: `
+    <div>
+      <input type="file" (change)="handleFileChange($event)" />
+      <button (click)="handleUpload()">Upload</button>
+    </div>
+  `,
+})
+export class UploadComponent {
+  file: File | null = null;
+
+  handleFileChange(event: any): void {
+    this.file = event.target.files[0];
+  }
+
+  async handleUpload(): Promise<void> {
+    const apiKey = 'api_key';
+    const uploadfly = new CreateUploadflyClient(apiKey);
+
+    try {
+      const result = await uploadfly.upload(this.file!, { filename: 'custom_filename' });
+      console.log('Upload successful:', result);
+    } catch (error) {
+      console.error('Upload failed:', error.message);
+    }
+  }
+}
+
+
+```
+
+```javascript Express
+const express = require("express");
+const multer = require("multer");
+const { CreateUploadflyClient } = require("@uploadfly/js");
+
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
+
+app.post("/upload", upload.single("file"), async (req, res) => {
+  const { file } = req;
+
+  if (!file) {
+    return res.status(400).json({ error: "A file must be provided." });
+  }
+
+  const apiKey = "api_key";
+  const uploadfly = new CreateUploadflyClient(apiKey);
+
+  try {
+    const result = await uploadfly.upload(file, {
+      filename: "custom_filename",
+    });
+    return res.json(result);
+  } catch (error) {
+    return res.status(500).json({ error: `Upload failed: ${error.message}` });
+  }
+});
+
+app.delete("/delete", async (req, res) => {
+  const { fileUrl } = req.body;
+
+  if (!fileUrl) {
+    return res.status(400).json({ error: "A file URL must be provided." });
+  }
+
+  const apiKey = "api_key";
+  const uploadfly = new CreateUploadflyClient(apiKey);
+
+  try {
+    const result = await uploadfly.delete(fileUrl);
+    return res.json(result);
+  } catch (error) {
+    return res.status(500).json({ error: `Deletion failed: ${error.message}` });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
+});
+```
+
+</RequestExample>
